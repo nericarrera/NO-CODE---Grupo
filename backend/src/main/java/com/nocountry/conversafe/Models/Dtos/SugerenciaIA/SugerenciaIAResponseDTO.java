@@ -8,14 +8,6 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public class SugerenciaIAResponseDTO {
 
-    private String tipo;
-    private String descripcion;
-    private Mensaje mensajeRelacionado;
-    private LocalDateTime sugeridoEn;
+public record SugerenciaIAResponseDTO(String tipo, String descripcion, String mensajeRelacionado, String sugeridoEn) {
 }

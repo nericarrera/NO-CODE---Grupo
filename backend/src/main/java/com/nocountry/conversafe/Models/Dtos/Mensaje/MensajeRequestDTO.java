@@ -10,8 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class MensajeRequestDTO {
-
-    private Usuario autor;
-    private String contenido;
+public record MensajeRequestDTO(
+        Usuario autor,
+        String contenido) {
 }

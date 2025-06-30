@@ -5,13 +5,5 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public class UsuarioResponseDTO {
-
-    private String nombre;
-    private String email;
-
+public record UsuarioResponseDTO(String nombre, String email) {
 }

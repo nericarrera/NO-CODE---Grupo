@@ -8,17 +8,13 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public class MetricaConversacionResponseDTO {
 
-    private Integer totalMensajes;
-    private Integer mensajesSinRespuesta;
-    private Double participacionPromedio; // Ej: 0.65 = 65%
-    private String tonoGeneral; // Positivo, Neutro, Negativo
-    private Integer decisionesDetectadas;
-    private Integer responsablesAsignados;
-    private LocalDateTime generadoEn;
+public record MetricaConversacionResponseDTO(
+        Integer totalMensajes,
+    Integer mensajesSinRespuesta,
+    Double participacionPromedio,
+    String tonoGeneral,
+    Integer decisionesDetectadas,
+    Integer responsablesAsignados,
+    String generadoEn) {
 }
