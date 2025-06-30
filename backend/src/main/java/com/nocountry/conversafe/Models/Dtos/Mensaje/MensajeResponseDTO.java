@@ -8,13 +8,11 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public class MensajeResponseDTO {
+public record MensajeResponseDTO(
+        Usuario autor,
+        String contenido,
+        String timestamp
+) {
 
-    private Usuario autor;
-    private String contenido;
-    private LocalDateTime timestamp;
+
 }

@@ -5,14 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public class UsuarioRequestDTO {
 
-    private String nombre;
-    private String password;
-    private String email;
-
+public record UsuarioRequestDTO(String nombre, String password, String email) {
 }

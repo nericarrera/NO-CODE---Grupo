@@ -2,10 +2,7 @@ package com.nocountry.conversafe.Models.Entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +12,18 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode(of = "id")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
     private String password;
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "equipo_id")
+    private Equipo equipo;
 
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
