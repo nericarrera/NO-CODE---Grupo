@@ -1,71 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
+/* 1. Tailwind Directives (obligatorias) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 2. Fuente personalizada */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* 3. Estilos base */
 @layer base {
-  /* Fuente Inter (solo necesitas declararla una vez) */
-  @font-face {
-    font-family: 'Inter';
-    src: url('https://fonts.gstatic.com/s/inter/v3/UcCO3F8a4b0d1f5e6a7c.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  /* Estilos base para el body */
   body {
-    @apply m-0 p-0 font-sans bg-gray-100 text-gray-900;
-    font-family: 'Inter', sans-serif;
+    @apply bg-gray-900 text-gray-100 font-['Inter'] min-h-screen;
   }
 }
 
+/* 4. Clases personalizadas PARA EL LOGIN */
 @layer components {
-  /* Componentes personalizados */
-  .btn {
-    @apply px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200;
-  }
-  
-  .card {
-    @apply bg-white shadow-md rounded-lg p-6;
+  /* Contenedor principal */
+  .login-container {
+    @apply min-h-screen flex items-center justify-center p-4;
   }
 
-  /* Navbar */
-  .navbar {
-    @apply bg-white shadow-md p-4 flex items-center justify-between;
-  }
-  
-  .navbar-brand {
-    @apply text-xl font-bold text-gray-800;
-  }
-  
-  .navbar-links {
-    @apply flex space-x-4;
-  }
-  
-  .navbar-link {
-    @apply text-gray-600 hover:text-gray-800 transition-colors;
-  }
-  
-  .navbar-logo {
-    @apply h-10 w-auto; /* Ajusta el alto según lo que necesites */
-    max-width: 150px;   /* O el valor que prefieras */
-  }
-  
-  /* Footer */
-  .footer {
-    @apply bg-gray-200 text-center p-4 mt-8;
+  /* Tarjeta del formulario */
+  .login-card {
+    @apply bg-gray-800 rounded-xl shadow-lg p-8 w-full max-w-md border border-gray-700;
   }
 
-  /* Imágenes responsivas */
-  .img-responsive {
-    @apply max-w-full h-auto block;
+  /* Título */
+  .login-title {
+    @apply text-2xl font-bold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500;
   }
-}
 
-@layer utilities {
-  /* Utilidades personalizadas (opcional, Tailwind ya incluye estas) */
-  .text-balance {
-    text-wrap: balance;
+  /* Inputs */
+  .login-input {
+    @apply w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all;
+  }
+
+  /* Botón */
+  .login-btn {
+    @apply w-full py-3 bg-gradient-to-r from-purple-500 to-blue-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all;
+  }
+
+  /* Links */
+  .login-link {
+    @apply text-blue-400 hover:text-blue-300 transition-colors text-sm;
   }
 }
