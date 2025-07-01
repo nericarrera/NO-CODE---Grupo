@@ -25,6 +25,9 @@ public class Usuario {
     @JoinColumn(name = "equipo_id")
     private Equipo equipo;
 
+    @ManyToMany(mappedBy = "participantes")
+    private List<Chat> chats;
+
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Mensaje> mensajes = new ArrayList<>();
