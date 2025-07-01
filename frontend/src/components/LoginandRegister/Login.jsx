@@ -12,7 +12,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-blue-500 rounded-3xl self-center" >
+    <div className="bg-blue-300 rounded-3xl self-center" >
       <h2 className='text-4xl text-center'>Iniciar Sesión</h2>
       <form onSubmit={handleSubmit}>
         <div>
