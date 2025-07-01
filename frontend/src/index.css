@@ -1,3 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Fuente Inter (solo necesitas declararla una vez) */
+  @font-face {
+    font-family: 'Inter';
+    src: url('https://fonts.gstatic.com/s/inter/v3/UcCO3F8a4b0d1f5e6a7c.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Estilos base para el body */
+  body {
+    @apply m-0 p-0 font-sans bg-gray-100 text-gray-900;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Componentes personalizados */
+  .btn {
+    @apply px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white shadow-md rounded-lg p-6;
+  }
+
+  /* Navbar */
+  .navbar {
+    @apply bg-white shadow-md p-4 flex items-center justify-between;
+  }
+  
+  .navbar-brand {
+    @apply text-xl font-bold text-gray-800;
+  }
+  
+  .navbar-links {
+    @apply flex space-x-4;
+  }
+  
+  .navbar-link {
+    @apply text-gray-600 hover:text-gray-800 transition-colors;
+  }
+  
+  /* Footer */
+  .footer {
+    @apply bg-gray-200 text-center p-4 mt-8;
+  }
+}
+
+@layer utilities {
+  /* Utilidades personalizadas (opcional, Tailwind ya incluye estas) */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
