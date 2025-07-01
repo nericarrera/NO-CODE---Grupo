@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+@layer components {
+ /* Sombra personalizada para el glow */
+  .shadow-glow {
+    box-shadow: 0 0 16px 2px #6C63FF55;
+  }
+
+  .drop-shadow-glow {
+    filter: drop-shadow(0 0 8px #6C63FF);
+  }
+}

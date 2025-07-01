@@ -47,9 +47,19 @@
     @apply text-gray-600 hover:text-gray-800 transition-colors;
   }
   
+  .navbar-logo {
+    @apply h-10 w-auto; /* Ajusta el alto según lo que necesites */
+    max-width: 150px;   /* O el valor que prefieras */
+  }
+  
   /* Footer */
   .footer {
     @apply bg-gray-200 text-center p-4 mt-8;
+  }
+
+  /* Imágenes responsivas */
+  .img-responsive {
+    @apply max-w-full h-auto block;
   }
 }
 

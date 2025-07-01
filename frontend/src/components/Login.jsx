@@ -2,34 +2,43 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-// Animaciones
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: 'spring', stiffness: 100 },
+    transition: { 
+      type: 'spring', 
+      stiffness: 120,
+      damping: 12
+    },
   },
 };
 
 const buttonVariants = {
   hover: {
-    scale: 1.05,
-    boxShadow: '0px 0px 15px rgba(108, 99, 255, 0.5)',
-    transition: { duration: 0.3 },
+    scale: 1.03,
+    boxShadow: '0px 0px 20px rgba(108, 99, 255, 0.7)',
+    transition: { 
+      duration: 0.4,
+      ease: [0.04, 0.62, 0.23, 0.98]
+    },
   },
-  tap: { scale: 0.95 },
+  tap: { 
+    scale: 0.98,
+    boxShadow: '0px 0px 10px rgba(108, 99, 255, 0.5)'
+  },
 };
 
 const Login = () => {
@@ -42,27 +51,38 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-dark text-light p-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#0a0a12] p-4 sm:p-6">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="w-full max-w-md"
+        className="w-full max-w-md relative"
       >
-        {/* Card */}
+        {/* Efecto de neón detrás de la tarjeta */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.6 }}
+          transition={{ duration: 1.5, repeat: Infinity, repeatType: 'reverse' }}
+          className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-primary/30 to-secondary/30 blur-md z-0"
+        />
+        
+        {/* Tarjeta principal */}
         <motion.div
           variants={itemVariants}
-          className="bg-gradient-to-br from-dark to-gray-900 border border-primary/20 rounded-2xl p-8 shadow-2xl shadow-primary/10"
+          className="relative z-10 bg-gradient-to-br from-[#121228] to-[#0a0a18] border border-[#ffffff08] rounded-2xl p-8 sm:p-10 shadow-2xl shadow-primary/10 backdrop-blur-sm"
         >
-          {/* Logo Futurista */}
+          {/* Logo */}
           <motion.div 
             variants={itemVariants}
             className="flex justify-center mb-8"
           >
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center border border-primary/30">
+            <motion.div 
+              whileHover={{ scale: 1.1 }}
+              className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center border border-primary/30 shadow-glow"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-primary"
+                className="h-10 w-10 text-primary drop-shadow-glow"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -70,60 +90,92 @@ const Login = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
+                  strokeWidth={1.5}
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M12 15v2m0 0v2m0-2h2m-2 0H10m6-10a6 6 0 00-12 0v1m12-1a6 6 0 01-12 0v1"
                 />
               </svg>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Título */}
-          <motion.h2 
-            variants={itemVariants}
-            className="text-3xl font-bold text-center mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
-          >
-            Bienvenido
-          </motion.h2>
-          <motion.p 
-            variants={itemVariants}
-            className="text-center text-light/60 mb-8"
-          >
-            Inicia sesión para acceder al dashboard
-          </motion.p>
+          <motion.div variants={itemVariants}>
+            <motion.h2 
+              className="text-3xl sm:text-4xl font-bold text-center mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
+              animate={{
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+              style={{
+                backgroundSize: '200% 200%',
+              }}
+            >
+              Acceso Seguro
+            </motion.h2>
+            <motion.p 
+              variants={itemVariants}
+              className="text-center text-[#ffffff99] mb-8 text-sm sm:text-base"
+            >
+              Autentícate para acceder al sistema
+            </motion.p>
+          </motion.div>
 
           {/* Formulario */}
-          <form onSubmit={handleSubmit}>
-            <motion.div variants={itemVariants} className="mb-6">
-              <label className="block text-light/80 mb-2 text-sm">Email</label>
-              <input
-                type="email"
-                className="w-full px-4 py-3 bg-dark/50 border border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="mb-8">
-              <label className="block text-light/80 mb-2 text-sm">Contraseña</label>
-              <input
-                type="password"
-                className="w-full px-4 py-3 bg-dark/50 border border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <motion.div variants={itemVariants}>
+              <label className="block text-[#ffffffcc] mb-2 text-sm font-medium">Correo Electrónico</label>
+              <div className="relative">
+                <input
+                  type="email"
+                  className="w-full px-4 py-3 bg-[#ffffff08] border border-[#ffffff15] rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all placeholder-[#ffffff50] text-white"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="tu@email.com"
+                  required
+                />
+                <div className="absolute inset-0 rounded-xl border border-primary/20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
             </motion.div>
 
             <motion.div variants={itemVariants}>
+              <label className="block text-[#ffffffcc] mb-2 text-sm font-medium">Contraseña</label>
+              <div className="relative group">
+                <input
+                  type="password"
+                  className="w-full px-4 py-3 bg-[#ffffff08] border border-[#ffffff15] rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all placeholder-[#ffffff50] text-white"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  required
+                />
+                <div className="absolute inset-0 rounded-xl border border-primary/20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="pt-2">
               <motion.button
                 type="submit"
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className="w-full py-3 bg-gradient-to-r from-primary to-secondary rounded-lg font-medium text-dark hover:shadow-lg transition-all"
+                className="w-full py-3.5 bg-gradient-to-r from-primary to-secondary rounded-xl font-medium text-white text-sm sm:text-base tracking-wide relative overflow-hidden"
               >
-                Ingresar
+                <span className="relative z-10">Ingresar</span>
+                <motion.span
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '0%' }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 z-0"
+                />
               </motion.button>
             </motion.div>
           </form>
@@ -131,46 +183,54 @@ const Login = () => {
           {/* Links */}
           <motion.div 
             variants={itemVariants}
-            className="mt-6 text-center text-sm"
+            className="mt-8 text-center text-sm"
           >
             <Link
               to="/forgot-password"
-              className="text-light/60 hover:text-primary transition-colors"
+              className="text-[#ffffff99] hover:text-primary transition-colors duration-300 inline-block mx-2"
             >
-              ¿Olvidaste tu contraseña?
+              Recuperar acceso
             </Link>
-            <span className="mx-2 text-light/30">|</span>
+            <span className="text-[#ffffff30] mx-1">•</span>
             <Link
               to="/register"
-              className="text-light/60 hover:text-secondary transition-colors"
+              className="text-[#ffffff99] hover:text-secondary transition-colors duration-300 inline-block mx-2"
             >
               Crear cuenta
             </Link>
           </motion.div>
         </motion.div>
 
-        {/* Efecto de partículas (opcional) */}
+        {/* Efecto de partículas */}
         <motion.div 
-          variants={itemVariants}
-          className="absolute inset-0 overflow-hidden z-[-1]"
+          className="absolute inset-0 overflow-hidden z-[-1] pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
-          {[...Array(10)].map((_, i) => (
+          {[...Array(15)].map((_, i) => (
             <motion.div
               key={i}
+              initial={{
+                y: Math.random() * 100,
+                x: Math.random() * 100,
+                opacity: 0,
+              }}
               animate={{
-                y: [0, -20, 0],
-                x: [0, 15, 0],
-                opacity: [0.5, 1, 0.5],
+                y: [0, -Math.random() * 30, 0],
+                x: [0, Math.random() * 20 - 10, 0],
+                opacity: [0.3, 0.8, 0.3],
               }}
               transition={{
                 duration: 5 + Math.random() * 10,
                 repeat: Infinity,
                 repeatType: 'reverse',
+                ease: 'easeInOut',
               }}
-              className="absolute rounded-full bg-primary/10"
+              className="absolute rounded-full bg-gradient-to-r from-primary/30 to-secondary/30"
               style={{
-                width: `${Math.random() * 10 + 5}px`,
-                height: `${Math.random() * 10 + 5}px`,
+                width: `${Math.random() * 8 + 4}px`,
+                height: `${Math.random() * 8 + 4}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
               }}
