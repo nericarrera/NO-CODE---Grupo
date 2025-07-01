@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/auth/register","/auth/login")
                         .permitAll()
                         .anyRequest()
-                        .permitAll()
+                        .authenticated()
                 )
                 .sessionManagement(session->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
