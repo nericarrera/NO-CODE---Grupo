@@ -1,4 +1,4 @@
-package com.nocountry.conversafe.Config.Jwt;
+package com.nocountry.conversafe.Config.Security.Jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

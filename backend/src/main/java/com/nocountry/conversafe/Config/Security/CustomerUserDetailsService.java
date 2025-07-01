@@ -1,4 +1,4 @@
-package com.nocountry.conversafe.Config;
+package com.nocountry.conversafe.Config.Security;
 
 
 import com.nocountry.conversafe.Models.Entities.Usuario;

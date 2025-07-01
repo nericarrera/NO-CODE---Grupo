@@ -1,6 +1,6 @@
-package com.nocountry.conversafe.Config.Jwt;
+package com.nocountry.conversafe.Config.Security.Jwt;
 
-import com.nocountry.conversafe.Config.CustomerUserDetailsService;
+import com.nocountry.conversafe.Config.Security.CustomerUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

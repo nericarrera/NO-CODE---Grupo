@@ -1,6 +1,6 @@
-package com.nocountry.conversafe.Config;
+package com.nocountry.conversafe.Config.Security;
 
-import com.nocountry.conversafe.Config.Jwt.JwtAuthenticationFilter;
+import com.nocountry.conversafe.Config.Security.Jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/auth/register","/auth/login")
                         .permitAll()
                         .anyRequest()
-                        .authenticated()
+                        .permitAll()
                 )
                 .sessionManagement(session->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)

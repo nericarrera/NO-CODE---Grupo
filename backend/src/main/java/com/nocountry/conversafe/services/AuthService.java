@@ -1,6 +1,6 @@
 package com.nocountry.conversafe.services;
 
-import com.nocountry.conversafe.Config.Jwt.JwtUtils;
+import com.nocountry.conversafe.Config.Security.Jwt.JwtUtils;
 import com.nocountry.conversafe.Models.Dtos.Jwt.JwtResponseDTO;
 import com.nocountry.conversafe.Models.Dtos.Usuario.UsuarioLoginDTO;
 import com.nocountry.conversafe.Models.Dtos.Usuario.UsuarioRequestDTO;
