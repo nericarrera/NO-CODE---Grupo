@@ -1,0 +1,97 @@
+[
+    {
+    "equipo_id": "1",
+    "nombre": "Equipo de diseño",
+    "mensajes":[
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 2
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 3
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 4
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 5
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 6
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 1
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 7
+            }
+        ]
+    },
+    {
+    "equipo_id": "2",
+    "nombre": "Equipo de front",
+    "mensajes":[
+            {
+                "mensaje": "otro mensaje",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 2
+            },
+            {
+                "mensaje": "asñldasdasñdhañlsdñad",
+                "nombre": "Jose",
+                "id": 3
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 4
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 5
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 6
+            },
+            {
+                "mensaje": "Lorem ipsum dolor sit amet consectetur adipiscing elit orci, tristique mollis lobortis nec vitae eu pharetra aenean non, semper placerat nam nostra etiam luctus varius. Donec fringilla facilisi feugiat hac phasellus sociosqu, duis aptent ultrices fames ligula volutpat, integer ac sodales nulla porta. Auctor lacus dui suspendisse dis quam netus dapibus elementum tempor praesent eleifend himenaeos, hac tristique semper vulputate cubilia phasellus platea tortor sociosqu aliquet.",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 1
+            },
+            {
+                "mensaje": "asssssssssdadasdasdasdasdasd",
+                "time": "10:00",
+                "nombre": "Jose",
+                "id": 1
+            }
+        ]
+    }
+]
