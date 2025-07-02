@@ -1,2 +1,32 @@
+@theme {
+    --color-graphite: #282828;
+    --color-davyGray: #4E4E4E;
+    --color-platine: #E0E0E0;
+    --color-cyan: #00FFFF;
+    --color-ebony: #3A3A3A;
+    --color-teal: #848484;
+    --color-indianYellow: #FFA500;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4B5563; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6B7280;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 @import "tailwindcss"
+
 
