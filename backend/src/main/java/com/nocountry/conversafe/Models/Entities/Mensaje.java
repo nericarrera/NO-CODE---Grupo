@@ -16,6 +16,7 @@ public class Mensaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
     @JsonBackReference
     private Usuario autor;
@@ -24,6 +25,9 @@ public class Mensaje {
     private String tipo;
     private String tono;
     private String status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Chat chat;
 
     @PrePersist
     protected void onCreate() {

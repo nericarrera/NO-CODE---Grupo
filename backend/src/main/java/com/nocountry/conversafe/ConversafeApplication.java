@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class ConversafeApplication {
 
 	public static void main(String[] args) {
+		SpringApplication.run(ConversafeApplication.class, args);
 		GenerateText generateText = new GenerateText();
 
 		Scanner teclado = new Scanner(System.in);

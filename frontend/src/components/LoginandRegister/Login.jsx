@@ -1,46 +1,89 @@
 import { useState } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { login } from '../../auth/api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar los datos al backend
-    console.log('Datos de login:', { email, password });
+    const data = {
+      email,
+      password
+    };
+
+    const res = await login(data)
+    console.log(res);
+    
   };
 
   return (
-    <div className="bg-blue-500 rounded-3xl self-center" >
-      <h2 className='text-4xl text-center'>Iniciar Sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <input 
-            className='border-amber-600 border-2 rounded-3xl'
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-    
-          />
+    <div className="rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl overflow-hidden">
+        <div className="p-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-2">
+              Iniciar Sesión
+            </h2>
+            <p className="text-gray-400">Ingresa tus credenciales para continuar</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-300">Email:</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white placeholder-gray-500 transition-all"
+                placeholder="tu@email.com"
+                required
+              />
+            </div>
+
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-300">Contraseña:</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white placeholder-gray-500 transition-all"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+
+            <div className="flex justify-end">
+              <Link 
+                to="/forgot-password" 
+                className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                ¿Olvidaste tu contraseña?
+              </Link>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 cursor-pointer active:scale-95"
+            >
+              Ingresar
+            </button>
+          </form>
+
+          <div className="mt-6 text-center text-sm text-gray-400">
+            ¿No tienes cuenta?{" "}
+            <Link 
+              to="/register" 
+              className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+            >
+              Regístrate
+            </Link>
+          </div>
         </div>
-        <div>
-          <label>Contraseña:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Ingresar</button>
-      </form>
-      <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
-      <p>¿No tienes cuenta? <Link to="/register">Regístrate</Link></p>
+      </div>
     </div>
   );
 };
 
-export default Login; 	 
+export default Login;
