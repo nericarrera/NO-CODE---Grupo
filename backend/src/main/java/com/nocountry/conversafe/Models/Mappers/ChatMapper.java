@@ -2,6 +2,7 @@ package com.nocountry.conversafe.Models.Mappers;
 
 import com.nocountry.conversafe.Models.Dtos.Chat.ChatRequestDTO;
 import com.nocountry.conversafe.Models.Dtos.Chat.ChatResponseDTO;
+
 import com.nocountry.conversafe.Models.Entities.Chat;
 import com.nocountry.conversafe.Models.Entities.Usuario;
 import org.mapstruct.Mapper;

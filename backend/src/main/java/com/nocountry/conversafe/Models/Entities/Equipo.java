@@ -13,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "id")
-@Entity
 public class Equipo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
