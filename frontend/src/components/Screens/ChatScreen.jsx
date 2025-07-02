@@ -7,7 +7,7 @@ import messages from '../../messages.json'
 
 
 const ChatScreen = () => {
-  const [historial, setHistorial]= useState(null)
+  const [historial, setHistorial]= useState([])
   const [newMessage, setNewMessage]=useState()
 
   
@@ -22,12 +22,12 @@ const ChatScreen = () => {
  const handleSender =()=>{
   const time = new Date();
   const data = {
-    messaje: newMessage,
+    mensaje: newMessage,
     id: 1,
-    time:time.toLocaleTimeString({hour: '2-digit', minute: '2-digit'}) ,
+    time:time.toLocaleTimeString('es-AR',{hour: '2-digit', minute: '2-digit', hour12:false}) ,
     nombre: "Jose"
   }
-   console.log(data);
+   setHistorial((prev)=>[...prev, data])
    
    
  }
