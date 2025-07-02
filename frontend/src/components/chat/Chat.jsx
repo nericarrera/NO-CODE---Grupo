@@ -1,17 +1,22 @@
 import React from "react"
 
-const Chat = ({title, lastMessage, selected}) => {
+const Chat = ({item, selected, setId}) => {
+  
+  
+  const handleSelect = ()=>{
+    setId(item.equipo_id)
+  }
 
   return (
-    <div className={`flex  rounded-xl ${selected && 'bg-ebony' }`}>
+    <button className={`flex  rounded-xl ${selected === item.equipo_id && 'bg-ebony' }` } onClick={handleSelect}>
         {
-            selected && <div className="bg-cyan pl-1.5 rounded-l-xl"/> 
+            selected === item.equipo_id && <div className="bg-cyan pl-1.5 rounded-l-xl"/> 
         }
         <div className=" p-3 pl-6 leading-3">
-            <div className="text-white font-bold">{title}</div>
-            <div className="text-teal text-sm truncate w-28">{lastMessage}</div>
+            <div className="text-white font-bold">{item.nombre}</div>
+            <div className="text-teal text-sm truncate w-28">{item.mensajes[item.mensajes.length -1].mensaje}</div>
         </div> 
-    </div>
+    </button>
   )
 }
 
