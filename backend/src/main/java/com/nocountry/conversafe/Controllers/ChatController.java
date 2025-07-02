@@ -3,6 +3,7 @@ package com.nocountry.conversafe.Controllers;
 import com.nocountry.conversafe.Models.Dtos.Chat.ChatRequestDTO;
 import com.nocountry.conversafe.Models.Dtos.Chat.ChatResponseDTO;
 import com.nocountry.conversafe.services.ChatService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/chat")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearer-key")
 public class ChatController {
 
     private final ChatService chatService;
