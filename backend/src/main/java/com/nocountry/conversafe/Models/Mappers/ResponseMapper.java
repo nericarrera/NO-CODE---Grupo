@@ -2,7 +2,9 @@ package com.nocountry.conversafe.Models.Mappers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ResponseMapper implements IDataType{
 
     private final ObjectMapper objectMapper = new ObjectMapper();
