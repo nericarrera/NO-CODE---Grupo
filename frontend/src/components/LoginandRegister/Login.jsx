@@ -1,18 +1,36 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // <- Añadir useNavigate
+import { login } from '../../auth/api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // <- Nuevo hook
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar los datos al backend
-    console.log('Datos de login:', { email, password });
+    const data = { email, password };
+
+    try {
+      const res = await login(data);
+      console.log(res);
+      
+      
+      if (res && res.token) {
+        localStorage.setItem('authToken', res.token);
+        localStorage.setItem('userEmail', email);
+        console.log('Token guardado en localStorage');
+        navigate('/'); // Redirige a la página principal
+      }
+      
+      
+    } catch (error) {
+      console.error('Error durante el login:', error);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
+    <div className="rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl overflow-hidden">
         <div className="p-8">
           <div className="text-center mb-8">
@@ -58,7 +76,7 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
+              className="w-full py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 cursor-pointer active:scale-95"
             >
               Ingresar
             </button>
