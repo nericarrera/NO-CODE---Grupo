@@ -1,21 +1,32 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // <- Añadir useNavigate
 import { login } from '../../auth/api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // <- Nuevo hook
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {
-      email,
-      password
-    };
+    const data = { email, password };
 
-    const res = await login(data)
-    console.log(res);
-    
+    try {
+      const res = await login(data);
+      console.log(res);
+      
+      
+      if (res && res.token) {
+        localStorage.setItem('authToken', res.token);
+        localStorage.setItem('userEmail', email);
+        console.log('Token guardado en localStorage');
+        navigate('/'); // Redirige a la página principal
+      }
+      
+      
+    } catch (error) {
+      console.error('Error durante el login:', error);
+    }
   };
 
   return (
