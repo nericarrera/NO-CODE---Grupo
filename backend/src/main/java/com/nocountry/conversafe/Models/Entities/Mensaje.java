@@ -20,11 +20,17 @@ public class Mensaje {
     @ManyToOne
     @JsonBackReference
     private Usuario autor;
+    //no estoy seguro si es necesario guardar por ahora el contenido de los mensajes. Seria útil si solo son lon
     private String contenido;
-    private LocalDateTime timestamp;
-    private String tipo;
-    private String tono;
-    private String status;
+    //TR tiempo de respuesta 
+    private TR timestamp;
+    //Modificacion para usar luego en metricas
+    private int positivo
+    private int negativo
+    
+    //private String tipo;
+    //private String tono;
+    //private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Chat chat;
