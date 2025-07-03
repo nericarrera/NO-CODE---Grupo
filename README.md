@@ -11,7 +11,7 @@ Este MVP fue desarrollado en 5 días en el marco de una simulación de trabajo �
 
 ---
 
-## 👨‍💻👨‍💻👩‍💻 Equipo
+## 🐱‍👤 Equipo
 
 DESARROLLO BACKEND:
  - **Jose Elias Morales**
@@ -23,7 +23,7 @@ DESARROLLO BACKEND:
       - GitHub: [Lorenzo](https://github.com/lorenzoR22)
       - LinkedIn: [](https://www.linkedin.com/in/lorenzo22/)
   
-  ### 🔧 Tecnologías utilizadas:
+ ### 🔧 Tecnologías utilizadas:
 
 - **Java + Spring Boot**: desarrollo del backend
 - **Spring Security + JWT**: autenticación segura de usuarios
@@ -36,37 +36,30 @@ DESARROLLO FRONTEND:
       - GitHub: [Neri](https://github.com/nericarrera)
       - LinkedIn: [](https://www.linkedin.com/in/nericarrera/)
 
-  ### 🔧 Tecnologías utilizadas:
+ ### 🔧 Tecnologías utilizadas:
 
 
 ANALISTA BI
-- **Abrahm Silva**
+ - **Abrahm Silva**
       - GitHub: [Abrahm](https://github.com/urobukis)
       - LinkedIn: []()
 
 ### 🔧 Tecnologías utilizadas:
 
 
-QA 
-– **Gabriela Pardo**
-      - GitHub: [Gabriela Beatriz Pardo](https://github.com/GBPardoGabrielaBeatriz)
+TESTER QA
+ - **Gabriela Beatriz Pardo**
+      - GitHub: [Gabriela](https://github.com/GBPardoGabrielaBeatriz)
       - LinkedIn: [](https://www.linkedin.com/in/gabriela-beatriz-pardo/)
 
 
-  ### 🔧 Tecnologías utilizadas:
+ ### 🔧 Tecnologías utilizadas:
 
 - **Postman**: para pruebas de API REST
 - **Google Sheets**: documentación y trazabilidad de casos de prueba
 - **VS Code + terminal**: para clonar repositorio, levantar entorno local y ejecutar pruebas
 - **Word**: historias de usuario, análisis funcional
----
 
-## 🔍 Testing de IA
 
-Se validaron sugerencias de IA en tiempo real, incluyendo:
-- Detección de mensajes cruzados sin respuesta
-- Comentarios sin responsable asignado
-- Cambios de tono en el lenguaje
-- Generación de métricas de participación y claridad
----
+
 
