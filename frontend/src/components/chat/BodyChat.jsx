@@ -3,6 +3,11 @@ import { useEffect, useRef } from 'react'
 import Message from './Message'
 
 const BodyChat = ({messages}) => {
+  
+  
+  useEffect(()=>{
+
+  },[messages])
     
     const scrollRef = useRef(null)
 
@@ -13,11 +18,11 @@ const BodyChat = ({messages}) => {
   return (
     <div className='flex flex-col h-full w-full overflow-y-scroll gap-3' >
         {
-             messages ? messages.mensajes.map((item,index)=>(
-                    <Message message={item.mensaje} time={item.time} name={item.nombre} id={item.id} key={index} />
+             messages && messages.mensajes.map((item,index)=>(
+                    <Message message={item.contenido} time={item.timestamp} name={item.autor.nombre} id={item.autor.id} key={index} />
                 )
                 
-            ) : <div/>
+            ) 
         }
         <div ref={scrollRef}/>
     </div>

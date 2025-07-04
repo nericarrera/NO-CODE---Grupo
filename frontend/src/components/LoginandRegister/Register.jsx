@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { register } from "../../auth/api";
+import ButonAuth from "../buttons/butonAuth";
+
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -80,12 +82,7 @@ const Register = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="cursor-pointer active:scale-95 w-full py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300"
-            >
-              Registrarse
-            </button>
+            <ButonAuth title={"Registrarse"}/>
           </form>
 
           <div className="mt-6 text-center text-sm text-gray-400">
