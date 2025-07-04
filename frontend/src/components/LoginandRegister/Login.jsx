@@ -1,15 +1,20 @@
 import { useState } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
+
 import { login } from '../../auth/api';
 import ButonAuth from '../buttons/butonAuth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   let navigate = useNavigate();
 
-  const handleSubmit =async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     
     const data = {
       email,
@@ -19,6 +24,7 @@ const Login = () => {
     await login(data)
       .then(navigate("/"))
     
+
   };
 
   return (
