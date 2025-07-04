@@ -1,32 +1,30 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // <- Añadir useNavigate
+
+import { Link, useNavigate } from 'react-router-dom';
+
 import { login } from '../../auth/api';
+import ButonAuth from '../buttons/butonAuth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // <- Nuevo hook
+
+  let navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { email, password };
 
-    try {
-      const res = await login(data);
-      console.log(res);
-      
-      
-      if (res && res.token) {
-        localStorage.setItem('authToken', res.token);
-        localStorage.setItem('userEmail', email);
-        console.log('Token guardado en localStorage');
-        navigate('/'); // Redirige a la página principal
-      }
-      
-      
-    } catch (error) {
-      console.error('Error durante el login:', error);
-    }
+    
+    const data = {
+      email,
+      password
+    };
+
+    await login(data)
+      .then(navigate("/"))
+    
+
   };
 
   return (
@@ -73,13 +71,7 @@ const Login = () => {
                 ¿Olvidaste tu contraseña?
               </Link>
             </div>
-
-            <button
-              type="submit"
-              className="w-full py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 cursor-pointer active:scale-95"
-            >
-              Ingresar
-            </button>
+            <ButonAuth title={"Ingresar"}/>
           </form>
 
           <div className="mt-6 text-center text-sm text-gray-400">

@@ -6,12 +6,12 @@ const ForgotPassword = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lógica para recuperar contraseña
+    
     console.log('Email para recuperación:', email);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
+    <div className=" bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4 rounded-2xl">
       <div className="w-full max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl overflow-hidden">
         <div className="p-8">
           <div className="text-center mb-8">
@@ -45,7 +45,7 @@ const ForgotPassword = () => {
           <div className="mt-6 text-center text-sm text-gray-400">
             ¿Recordaste tu contraseña?{" "}
             <Link 
-              to="/" 
+              to="/login" 
               className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
             >
               Volver al Login
