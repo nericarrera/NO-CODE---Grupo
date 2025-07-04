@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
     private final UsuarioService usuarioService;
 
-    @GetMapping("/{id}")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public UsuarioResponseDTO getUsario(@PathVariable("id") Long id){
-        return usuarioService.getUsuario(id);
+    public UsuarioResponseDTO getUserByEmail(@RequestParam("email") String email){
+        return usuarioService.getUsuarioByEmail(email);
     }
 }

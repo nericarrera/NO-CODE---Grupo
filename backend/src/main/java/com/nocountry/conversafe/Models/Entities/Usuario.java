@@ -21,12 +21,12 @@ public class Usuario {
     private String password;
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "equipo_id")
-    private Equipo equipo;
+//    @ManyToOne
+//    @JoinColumn(name = "equipo_id")
+//    private Equipo equipo;
 
-    @ManyToMany(mappedBy = "participantes")
-    private List<Chat> chats;
+//    @ManyToMany(mappedBy = "participantes")
+//    private List<Chat> chats;
 
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference

@@ -10,6 +10,7 @@ import com.nocountry.conversafe.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -26,16 +27,16 @@ public class ChatService {
         return chatMapper.toDTO(chat);
     }
 
-    public List<ChatResponseDTO>getChatsByUser(Long userId){
-        Usuario user=userRepository.findById(userId)
-                .orElseThrow(()->new RuntimeException("no existe este user"));
-
-        List<Chat>chats=chatRepository.findAllByParticipantesContains(user);
-
-        return chats.stream()
-                .map(chatMapper::toDTO)
-                .toList();
-    }
+//    public List<ChatResponseDTO>getChatsByUser(Long userId){
+//        Usuario user=userRepository.findById(userId)
+//                .orElseThrow(()->new RuntimeException("no existe este user"));
+//
+//        List<Chat>chats=chatRepository.findAllByParticipantesContains(user);
+//
+//        return chats.stream()
+//                .map(chatMapper::toDTO)
+//                .toList();
+//    }
 
     public ChatResponseDTO saveChat(ChatRequestDTO chatRequestDTO){
         Chat chat=new Chat();
@@ -48,5 +49,13 @@ public class ChatService {
 
     public void deleteChat(Long id){
         chatRepository.deleteById(id);
+    }
+
+    public List<ChatResponseDTO> getAllchats() {
+        var chat = chatRepository.findAll();
+        if (chat.isEmpty()){
+            return Collections.emptyList();
+        }
+        return chat.stream().map(chatMapper::toDTO).toList();
     }
 }

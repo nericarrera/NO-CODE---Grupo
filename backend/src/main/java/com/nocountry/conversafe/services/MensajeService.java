@@ -44,6 +44,7 @@ public class MensajeService {
         newMensaje.setChat(chat);
 
         Mensaje saved= messageRepository.save(newMensaje);
+        saved.setChat(chat);
 
         //publica el mensaje y el front se suscribe y muestra el msg en el chat
         messagingTemplate.convertAndSend("/topic/mensajes/" + chat.getId(), mensajeMapper.toDTO(saved));

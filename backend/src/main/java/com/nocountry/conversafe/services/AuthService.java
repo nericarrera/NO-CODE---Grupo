@@ -32,7 +32,10 @@ public class AuthService {
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return new JwtResponseDTO(jwtUtils.generateToken(usuarioLoginDTO.email()));
+        String token = jwtUtils.generateToken(usuarioLoginDTO.email());
+
+
+        return new JwtResponseDTO(token, usuarioLoginDTO.email());
     }
 
     public void register(UsuarioRequestDTO usuarioRequestDTO) {

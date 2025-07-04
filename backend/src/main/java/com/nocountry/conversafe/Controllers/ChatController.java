@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/chat")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173")
 @SecurityRequirement(name = "bearer-key")
 public class ChatController {
 
@@ -24,15 +25,23 @@ public class ChatController {
         return chatService.saveChat(chatRequestDTO);
     }
 
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<ChatResponseDTO> getAllChats(){
+        return chatService.getAllchats();
+    }
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ChatResponseDTO getChat(@PathVariable("id") Long id){
         return chatService.getChat(id);
     }
 
-    @GetMapping("/{userId}")
-    @ResponseStatus(HttpStatus.OK)
-    public List<ChatResponseDTO> getChatsByUser(@PathVariable("userId")Long userId){
-        return chatService.getChatsByUser(userId);
-    }
+
+//
+//    @GetMapping("/{userId}")
+//    @ResponseStatus(HttpStatus.OK)
+//    public List<ChatResponseDTO> getChatsByUser(@PathVariable("userId")Long userId){
+//        return chatService.getChatsByUser(userId);
+//    }
 }
