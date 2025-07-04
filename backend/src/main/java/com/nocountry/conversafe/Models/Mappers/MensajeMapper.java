@@ -1,6 +1,5 @@
 package com.nocountry.conversafe.Models.Mappers;
 
-import com.nocountry.conversafe.Models.Dtos.Mensaje.MensajeParaIA;
 import com.nocountry.conversafe.Models.Dtos.Mensaje.MensajeResponseDTO;
 import com.nocountry.conversafe.Models.Entities.Mensaje;
 import org.mapstruct.Mapper;
@@ -14,7 +13,4 @@ public interface MensajeMapper {
     @Mapping(source = "autor", target = "autor") // usa UsuarioMapper.toMsgDTO()
     MensajeResponseDTO toDTO(Mensaje mensaje);
 
-    @Mapping(source = "autor.nombre", target = "nombre_autor")
-    @Mapping(source = "timestamp", target = "timestamp", dateFormat = "yyyy-MM-dd'T'HH:mm:ss")
-    MensajeParaIA toIaDTO(Mensaje mensaje);
 }

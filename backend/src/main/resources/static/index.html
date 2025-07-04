@@ -52,7 +52,7 @@
             stompClient.connect({}, function (frame) {
                 console.log('Conectado: ' + frame);
 
-                // Suscribirse a mensajes del chat
+                // Suscripción al canal de mensajes
                 stompClient.subscribe('/topic/mensajes/' + chatId, function (mensaje) {
                     const msg = JSON.parse(mensaje.body);
 
@@ -63,28 +63,21 @@
                     li.scrollIntoView({ behavior: 'smooth' });
                 });
 
-                // Suscribirse al análisis de IA
+                // Suscripción al canal de análisis IA (string plano)
                 stompClient.subscribe('/topic/analisis/' + chatId, function (sugerencia) {
-                    const analisis = JSON.parse(sugerencia.body);
+                    const analisis = sugerencia.body;
 
-                    const li = document.createElement("li");
-                    li.className = "list-group-item list-group-item-info";
+                    if (analisis) {
+                        const li = document.createElement("li");
+                        li.className = "list-group-item list-group-item-info";
 
-                    let html = `<strong>💡 Análisis IA:</strong><br>`;
-                    html += `<strong>Resumen:</strong> ${analisis.resumen}<br>`;
-                    html += `<strong>Estado general:</strong> ${analisis.estadoGeneral}<br>`;
+                        let html = `<strong>Análisis IA:</strong><br>`;
+                        html += `<ul><li>${analisis}</li></ul>`;
 
-                    if (analisis.sugerencias && analisis.sugerencias.length > 0) {
-                        html += `<strong>Sugerencias:</strong><ul>`;
-                        analisis.sugerencias.forEach(s => {
-                            html += `<li>${s}</li>`;
-                        });
-                        html += `</ul>`;
+                        li.innerHTML = html;
+                        document.getElementById("chat").appendChild(li);
+                        li.scrollIntoView({ behavior: 'smooth' });
                     }
-
-                    li.innerHTML = html;
-                    document.getElementById("chat").appendChild(li);
-                    li.scrollIntoView({ behavior: 'smooth' });
                 });
 
                 sendMessage(autorId, contenido);
