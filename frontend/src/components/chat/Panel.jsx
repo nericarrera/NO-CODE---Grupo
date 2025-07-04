@@ -3,6 +3,9 @@ import Chat from './Chat'
 
 const Panel = ({historial, setChatId, chatId}) => {
 
+  useEffect(()=>{
+
+  },[historial])
 
   return (
     <section className='bg-graphite w-80 p-6 flex flex-col gap-8'>

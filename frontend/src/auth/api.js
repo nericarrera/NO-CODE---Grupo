@@ -1,7 +1,7 @@
 
 import axios from "axios";
 
-const urlbase = 'http://localhost:8080'
+const urlbase = 'https://97cd-2803-82a0-2244-4ff0-27f1-642-4ed1-8a5.ngrok-free.app';
 
 export const register = async (data) =>{
     try{
@@ -32,6 +32,8 @@ export const getUserByEmail = async ()=>{
         const res = await axios.get(`${urlbase}/usuario?email=${email}`, {headers:{
             Authorization:`Bearer ${token}`
         }})
+        console.log(res.data);
+        
         localStorage.setItem("nombre", res.data.nombre)
         localStorage.setItem("id", res.data.id)
     }catch(e){
@@ -42,6 +44,7 @@ export const getUserByEmail = async ()=>{
 export const getAllChats = async () =>{
     try{
         const token = localStorage.getItem("token")
+        console.log(token)
         const res = await axios.get(`${urlbase}/api/chat`, {
             headers:{
                 Authorization: `Bearer ${token}`
