@@ -61,5 +61,7 @@ TESTER QA
 - **Word**: historias de usuario, análisis funcional
 
 
+DOCUMENTACION QA : (https://docs.google.com/document/d/1CYWMGxICV0Fo79jMoFEIC-1TZWuy4UVYCbUIVasFupg/edit?usp=sharing)
+
 
 
