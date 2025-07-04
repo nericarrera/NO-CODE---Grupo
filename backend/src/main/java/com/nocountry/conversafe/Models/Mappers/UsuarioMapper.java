@@ -13,8 +13,8 @@ public interface UsuarioMapper {
     UsuarioResponseDTO toDTO(Usuario usuario);
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "equipo", ignore = true)
-    @Mapping(target = "chats", ignore = true)
+//    @Mapping(target = "equipo", ignore = true)
+//    @Mapping(target = "chats", ignore = true)
     @Mapping(target = "mensajes", ignore = true)
     Usuario toEntity(UsuarioRequestDTO usuarioRequestDTO);
 

@@ -47,6 +47,7 @@ public class MensajeService {
         newMensaje.setChat(chat);
 
         Mensaje saved= messageRepository.save(newMensaje);
+        saved.setChat(chat);
 
         return mensajeMapper.toDTO(saved);
     }

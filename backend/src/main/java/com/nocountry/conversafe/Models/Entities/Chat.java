@@ -21,6 +21,6 @@ public class Chat {
 
     private String nombre;
 
-    @ManyToMany
-    private List<Usuario> participantes=new ArrayList<>();
+    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Mensaje> mensajes=new ArrayList<>();
 }

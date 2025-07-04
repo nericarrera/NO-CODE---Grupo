@@ -14,8 +14,8 @@ public class UsuarioService {
     private final UserRepository userRepository;
     private final UsuarioMapper usuarioMapper;
 
-    public UsuarioResponseDTO getUsuario(Long id){
-        Usuario usuario=userRepository.findById(id)
+    public UsuarioResponseDTO getUsuarioByEmail(String email){
+        Usuario usuario=userRepository.findByEmail(email)
                 .orElseThrow(()->new RuntimeException("no existe este user"));
         return usuarioMapper.toDTO(usuario);
     }
