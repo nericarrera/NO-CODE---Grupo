@@ -22,7 +22,7 @@ public class IAService {
     private final IDataType mapper;
     private final MessageRepository messageRepository;
     private final MensajeService mensajeService;
-    private static final Long ID_CHATBOT=3L;
+    private static final Long ID_CHATBOT=2L;
 
     @Value("${GOOGLE_API_KEY}")
     private String apiKey;
@@ -37,7 +37,6 @@ public class IAService {
 
         Mensaje saved=mensajeService.enviarMensaje(mensaje);
 
-        //analiza si el msg es negativo, si es pregunta y si necesita publicar una sugerencia.
         enviarAnalisisMensaje(mensaje.chatId(),saved);
     }
 
@@ -69,12 +68,15 @@ public class IAService {
                 .stream().map(Mensaje::getContenido)
                 .toList();
 
+        String contexto = String.join("\n", mensajes);
+        String promptFinal = String.format(promptParaMensaje, contexto, mensaje);
+
         Client client = Client.builder().apiKey(apiKey).build();
 
         GenerateContentResponse response =
                 client.models.generateContent(
                         "gemini-2.0-flash",
-                        promptParaMensaje +mensajes+mensaje,
+                        promptFinal,
                         null);
 
         String respuesta=response.text().replaceAll("^```json\\s*", "")   // Quita ```json al inicio
@@ -96,7 +98,7 @@ public class IAService {
             List<String>mensajesPosteriores=messageRepository.findMensajesPosteriores(pregunta.getChat(),pregunta.getId())
                             .stream().map(Mensaje::getContenido).toList();
 
-            if(mensajesPosteriores.size()>=5){
+            if(mensajesPosteriores.size()>=2){
                 if(!fueRespondida(pregunta.getContenido(),mensajesPosteriores)){
                     mensajeService.enviarMensaje(new MensajeRequestDTO(ID_CHATBOT
                             ,pregunta.getChat().getId()
@@ -111,11 +113,15 @@ public class IAService {
     private Boolean fueRespondida(String pregunta,List<String>mensajesPosteriores){
         Client client = Client.builder().apiKey(apiKey).build();
 
+        String mensajes = String.join("\n", mensajesPosteriores);
+        String promptFinal = String.format(promptPregRespondida, pregunta, mensajes);
+
         GenerateContentResponse response =
                 client.models.generateContent(
                         "gemini-2.0-flash",
-                        promptPregRespondida +pregunta+mensajesPosteriores,
+                        promptFinal,
                         null);
+
         String respuesta=response.text().replaceAll("^```json\\s*", "")   // Quita ```json al inicio
                 .replaceAll("\\s*```$", "")        // Quita ``` al final
                 .trim();
