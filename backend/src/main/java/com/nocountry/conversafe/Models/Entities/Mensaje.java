@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @NoArgsConstructor
@@ -20,23 +21,27 @@ public class Mensaje {
     @ManyToOne
     @JsonBackReference
     private Usuario autor;
-    //no estoy seguro si es necesario guardar por ahora el contenido de los mensajes. Seria útil si solo son lon
+
     private String contenido;
+
     //TR tiempo de respuesta 
-    private TR timestamp;
+    private String timestamp;
+
     //Modificacion para usar luego en metricas
-    private int positivo
-    private int negativo
+    private int positivo;
+    private int negativo;
     
-    //private String tipo;
-    //private String tono;
-    //private String status;
+    private String tipo;
+    private Boolean fueChequeada;// es para saber si ya se chequea la respuesta a la pregunta.
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Chat chat;
 
     @PrePersist
     protected void onCreate() {
-        this.timestamp = LocalDateTime.now();
+        this.positivo=1;
+        this.negativo=0;
+        this.fueChequeada =false;
+        this.timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
     }
 }

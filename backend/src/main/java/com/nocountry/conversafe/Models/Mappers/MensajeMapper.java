@@ -12,4 +12,5 @@ public interface MensajeMapper {
     @Mapping(source = "timestamp", target = "timestamp", dateFormat = "yyyy-MM-dd'T'HH:mm:ss")
     @Mapping(source = "autor", target = "autor") // usa UsuarioMapper.toMsgDTO()
     MensajeResponseDTO toDTO(Mensaje mensaje);
+
 }
